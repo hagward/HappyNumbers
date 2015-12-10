@@ -8,7 +8,7 @@ import java.util.Set;
  */
 public class HappyNumberGenerator {
 
-    public boolean isHappy(int n) {
+    public boolean isHappy(long n) {
         Set<Long> viewedNumbers = new HashSet<>();
         long currentNumber = n;
         while (currentNumber != 1 && !viewedNumbers.contains(currentNumber)) {
