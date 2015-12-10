@@ -3,6 +3,9 @@ package se.kth.hagward;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HappyNumberGeneratorTest {
 
     private static final int[] HAPPY_NUMBERS = new int[] {
@@ -42,11 +45,23 @@ public class HappyNumberGeneratorTest {
         Assert.assertEquals(810, happyNumberGenerator.getSquareDigitSum(9999999999L));
 
         long digitSum = 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81;
-        Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(123456789L));
-        Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(1234567890L));
-        Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(1234506789L));
+        Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(123456789));
+        Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(1234567890));
+        Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(1234506789));
         Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(123450678900000L));
         Assert.assertEquals(digitSum, happyNumberGenerator.getSquareDigitSum(95873421600000L));
+    }
+
+    @Test
+    public void testGetHappyNumbers() {
+        HappyNumberGenerator happyNumberGenerator = new HappyNumberGenerator();
+
+        // Check that we receive all happy numbers between 1 and 1000 (both inclusive).
+        List<Long> happyNumbers = new ArrayList<>();
+        for (int happyNumber : HAPPY_NUMBERS) {
+            happyNumbers.add((long) happyNumber);
+        }
+        Assert.assertEquals(happyNumbers, happyNumberGenerator.getHappyNumbers(1000));
     }
 
 }

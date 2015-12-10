@@ -1,6 +1,8 @@
 package se.kth.hagward;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -25,6 +27,16 @@ public class HappyNumberGenerator {
             digitSum += Math.pow('0' - charDigit, 2);
         }
         return digitSum;
+    }
+
+    public List<Long> getHappyNumbers(long upTo) {
+        List<Long> happyNumbers = new ArrayList<>();
+        for (long i = 1; i <= upTo; i++) {
+            if (isHappy(i)) {
+                happyNumbers.add(i);
+            }
+        }
+        return happyNumbers;
     }
 
 }
