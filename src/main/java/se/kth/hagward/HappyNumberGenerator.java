@@ -10,6 +10,11 @@ import java.util.Set;
  */
 public class HappyNumberGenerator {
 
+    /**
+     * Checks if a number is happy.
+     * @param n the number to check for happiness
+     * @return <code>true</code> if <code>n</code> is happy; <code>false</code> otherwise
+     */
     public boolean isHappy(long n) {
         Set<Long> viewedNumbers = new HashSet<>();
         long currentNumber = n;
@@ -20,6 +25,11 @@ public class HappyNumberGenerator {
         return currentNumber == 1;
     }
 
+    /**
+     * Calculates and returns the sum of the squared digits of a number.
+     * @param n the number to calculate the sum for
+     * @return the sum of the squared digits of <code>n</code>
+     */
     public long getSquareDigitSum(long n) {
         long digitSum = 0;
         char[] charDigits = String.valueOf(n).toCharArray();
@@ -29,6 +39,11 @@ public class HappyNumberGenerator {
         return digitSum;
     }
 
+    /**
+     * Returns a list of all the happy numbers from 1 to <code>upTo</code> (inclusive).
+     * @param upTo the number to find happy numbers up to (inclusive)
+     * @return a list of all the happy numbers from 1 to <code>upTo</code> (inclusive)
+     */
     public List<Long> getHappyNumbers(long upTo) {
         List<Long> happyNumbers = new ArrayList<>();
         for (long i = 1; i <= upTo; i++) {
