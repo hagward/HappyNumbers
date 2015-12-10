@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Class for generating happy numbers (https://en.wikipedia.org/wiki/Happy_number).
+ * Class for generating happy numbers (https://en.wikipedia.org/wiki/Happy_number). Includes a console application for
+ * printing said numbers.
  */
 public class HappyNumberGenerator {
 
@@ -52,6 +53,14 @@ public class HappyNumberGenerator {
             }
         }
         return happyNumbers;
+    }
+
+    public static void main(String[] args) {
+        // If no argument is provided, stop at 1000.
+        long upTo = (args.length > 0) ? Long.parseLong(args[0]) : 1000;
+
+        HappyNumberGenerator generator = new HappyNumberGenerator();
+        generator.getHappyNumbers(upTo).stream().forEach(System.out::println);
     }
 
 }
