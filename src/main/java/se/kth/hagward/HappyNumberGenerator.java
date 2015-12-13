@@ -15,7 +15,7 @@ public class HappyNumberGenerator {
     //   0: unknown / not processed
     //   1: happy
     //   2: unhappy
-    private static final int[] happyCache = new int[1000];
+    private static final byte[] happyCache = new byte[1000];
 
     /**
      * Checks if a number is happy.
@@ -40,7 +40,7 @@ public class HappyNumberGenerator {
         }
 
         if (n < happyCache.length) {
-            happyCache[(int) n] = (currentNumber == 1) ? 1 : 2;
+            happyCache[(int) n] = (byte) ((currentNumber == 1) ? 1 : 2);
         }
 
         return currentNumber == 1;
