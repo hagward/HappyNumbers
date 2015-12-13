@@ -4,7 +4,9 @@ This project contains functionality for testing if numbers are *happy* (see the 
 
 ## Build instructions
 
-To build the project, clone the repository and simply run the supplied Gradle wrapper, `gradlew`.
+To build the project, clone the repository and simply run the supplied Gradle wrapper, `gradlew` (`gradlew.bat` on Windows). Note that you'll need JDK8 in order to build this project.
+
+Tests are run by running `gradlew test`.
 
 ## How to run
 
