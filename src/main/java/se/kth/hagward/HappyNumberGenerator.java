@@ -8,6 +8,8 @@ import java.util.Set;
 /**
  * Class for generating happy numbers (https://en.wikipedia.org/wiki/Happy_number). Includes a console application for
  * printing said numbers.
+ *
+ * Note that this class might not be thread safe.
  */
 public class HappyNumberGenerator {
 
@@ -15,7 +17,7 @@ public class HappyNumberGenerator {
     //   0: unknown / not processed
     //   1: happy
     //   2: unhappy
-    private static final byte[] happyCache = new byte[1000];
+    private final byte[] happyCache = new byte[1000];
 
     /**
      * Checks if a number is happy.
