@@ -11,6 +11,12 @@ import java.util.Set;
  */
 public class HappyNumberGenerator {
 
+    // Cache if numbers are happy or unhappy to speed up number generation. Its three possible values are:
+    //   0: unknown / not processed
+    //   1: happy
+    //   2: unhappy
+    private static final int[] happyCache = new int[1000];
+
     /**
      * Checks if a number is happy.
      * @param n the number to check for happiness
@@ -20,9 +26,23 @@ public class HappyNumberGenerator {
         Set<Long> viewedNumbers = new HashSet<>();
         long currentNumber = n;
         while (currentNumber != 1 && !viewedNumbers.contains(currentNumber)) {
+            // Check the cache first.
+            if (currentNumber < happyCache.length && happyCache[(int) currentNumber] > 0) {
+                if (n < happyCache.length) {
+                    // Update cache with number n if small enough.
+                    happyCache[(int) n] = happyCache[(int) currentNumber];
+                }
+                return happyCache[(int) currentNumber] == 1;
+            }
+
             viewedNumbers.add(currentNumber);
             currentNumber = getSquareDigitSum(currentNumber);
         }
+
+        if (n < happyCache.length) {
+            happyCache[(int) n] = (currentNumber == 1) ? 1 : 2;
+        }
+
         return currentNumber == 1;
     }
 
