@@ -33,9 +33,9 @@ public class HappyNumberGenerator {
      */
     public long getSquareDigitSum(long n) {
         long digitSum = 0;
-        char[] charDigits = String.valueOf(n).toCharArray();
-        for (char charDigit : charDigits) {
-            digitSum += Math.pow('0' - charDigit, 2);
+        // Modulus and divide by ten until zero.
+        for (; n > 0; n /= 10) {
+            digitSum += Math.pow(n % 10, 2);
         }
         return digitSum;
     }
